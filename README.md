@@ -3,20 +3,24 @@
 ##Requirements
 
 Python 2.7.3, CouchDB(and python-couchdb)
+
 ---
 ## init
 
 * fill database -> Execute ibexQuery.py with cron
 ([how to configure cron](http://www.codigonomada.com/como-anadir-tareas-programadas-con-cron-linux/))
 * DB -> couchDB, getDao.DaoUtil() -> for DB operations
+
 ---
 **TODO:**
+
 * API yahoo (or similar)
 * Organize classes
 * graphics
 * model Queries
 * config / automatizacion de consulta pagina en RAW(asistente)
 * hacer Doc resumen de cada compañia al dia (asi borramos las cotizaciones instantaneas para ahorrar espacio)
+
 ---
 ##Tiempos
 
@@ -37,4 +41,5 @@ With couchdb views
 ###recuperar un documentos de una empresa dada en un intervalo de tiempo
 
 ###recuperar un documentos de todas las empresas en un intervalo de tiempo
+
 ---
