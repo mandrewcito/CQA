@@ -1,7 +1,7 @@
 import couchdb
 import model.couchDB
 import config as c
-from quotes import Quote
+from quotes import InstantQuote
 import json
 
 class GetDao():
@@ -22,5 +22,5 @@ class DaoUtil():
 
   def insert(self,date,company,value):
     #TODO validar date,company y value
-    quote=Quote(date,company,value)
+    quote=InstantQuote(date,company,value)
     self.dao.insert(quote.toDict())
