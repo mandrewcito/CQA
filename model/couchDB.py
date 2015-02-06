@@ -3,7 +3,8 @@
 import sys
 import locale
 import uuid
-import couchdb 
+import couchdb
+import quotes
 
 # couchdb doc says:
 #
