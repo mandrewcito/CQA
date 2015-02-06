@@ -5,12 +5,11 @@ fill database -> Execute ibexQuery.py with cron
 DB -> couchDB, getDao.DaoUtil() -> for DB operations
 
 **TODO:**
-*API yahoo (or similar)
-*Organize classes
-*graphics
-*model Queries
-*config / automatizacion de consulta pagina en RAW(asistente)
-*actualizar fecha cuando se inserta en BD
+	*API yahoo (or similar)
+	*Organize classes
+	*graphics
+	*model Queries
+	*config / automatizacion de consulta pagina en RAW(asistente)
 
 #Tiempos
 UTIL/medidas/medirTiempo.py PROGRAMA - mide tiempo ejecución de PROGRAMA

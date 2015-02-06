@@ -2,7 +2,6 @@
 # --*-- coding: utf-8 --*--
 import model.getData.getIbex as getIbex
 import getDao as g
-import time
 import UTIL.dateUtil as dt
 import UTIL.configUtil as cfg
 
