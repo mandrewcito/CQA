@@ -21,6 +21,9 @@ class DaoUtil():
   #delegacion de los casos de uso, inserciones, busquedas .... , los casos de uso van en otra clase 
 
   def insert(self,date,company,value):
-    #TODO validar date,company y value
+    #TODO validar date,company y value  y valor de retorno
     quote=InstantQuote(date,company,value)
     self.dao.insert(quote.toDict())
+
+  def findInstantQuoteByCompany(self,company,startDate,endDate):
+    self.dao.findInstantQuoteByCompany(company,startDate,endDate)

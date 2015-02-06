@@ -5,7 +5,7 @@ import locale
 import uuid
 import couchdb
 import quotes
-
+import mapFun
 # couchdb doc says:
 #
 # "Note that it is generally better to avoid saving documents with no
@@ -61,9 +61,16 @@ class CouchDBDAO:
     #dada una fecha(dd/mm/yy), devuelve los documentos de esa fecha(cootizaciones)
     pass
 
-  def findByCompany(self,company,startDate,endDate):
-    #devuelve lista de pares cootizacion fecha entre dos fechas dadas
-    pass
+  def findInstantQuoteByCompany(self,company,startDate,endDate):
+    #devuelve lista de pares cootizacion fecha entre dos fechas dadas de una company
+    #formateamos la consulta
+    mf=mapFun.mfInstantQuote.format(company)
+    #hacemos la consulta
+    rows=self._db.query(mf)
+    newquotes=[]
+    for row in rows:
+      newquotes.append(quotes.InstantQuote(row.key['company'],row.key['date'],row.key['value']))
+    return newquotes
 
   def findDoc(self,doc):
     #devuelve ID doc dado un documento 
