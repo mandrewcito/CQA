@@ -57,9 +57,17 @@ class CouchDBDAO:
     del self._db[doc.id]
     #print >>sys.stderr, u"DELETE({0}): {1}".format(self._db.name, doc).encode(locale.getpreferredencoding())
 
-  def findByDate(self,date):
+  def findInstantQuoteByDate(self,date):
     #dada una fecha(dd/mm/yy), devuelve los documentos de esa fecha(cootizaciones)
-    pass
+    d1=couchDBUtil.dateToCouchDBDate(date+"-00:00")
+    d2=couchDBUtil.dateToCouchDBDate(date+"-23:00")
+    mf=mapFun.mfInstantQuoteByDate.format(d1,d2)
+    rows=self._db.query(mf)
+    newquotes=[]
+    for row in rows:
+      newquotes.append(quotes.InstantQuote(row.key['company'],couchDBUtil.couchDBDateToDate(row.key['date']),row.key['value']))
+    print " -> "+str(len(newquotes))+" documentos recuperados"
+    return newquotes
 
   def findInstantQuoteByCompany(self,company,startDate,endDate):
     #devuelve lista de pares cootizacion fecha entre dos fechas dadas de una company

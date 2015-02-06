@@ -26,3 +26,6 @@ class DaoUtil():
 
   def findInstantQuoteByCompany(self,company,startDate,endDate):
     self.dao.findInstantQuoteByCompany(company,startDate,endDate)
+
+  def findInstantQuoteByDate(self,date):
+    self.dao.findInstantQuoteByDate(date)
