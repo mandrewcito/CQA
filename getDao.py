@@ -2,7 +2,6 @@ import couchdb
 import model.couchDB
 import config as c
 from model.quotes import InstantQuote
-import json
 
 class GetDao():
 

@@ -1,3 +1,4 @@
+import couchDBUtil as util
 class Quote():
   #We use this obj for creating DB documents (valueObjects)
   def __init__(self,acompany,avalue):
@@ -18,7 +19,7 @@ class InstantQuote(Quote):
     self._date=adate #dd/mm/yy-hh:mm
 
   def toDict(self):
-    return {"type":self._type,"date":self._date,"company":self._company,"value":self._value}
+    return {"type":self._type,"date":util.dateToCouchDBDate(self._date),"company":self._company,"value":self._value}
 
   def getDate(self):
     return self._date
