@@ -70,6 +70,7 @@ class CouchDBDAO:
     newquotes=[]
     for row in rows:
       newquotes.append(quotes.InstantQuote(row.key['company'],couchDBUtil.couchDBDateToDate(row.key['date']),row.key['value']))
+    print " -> "+str(len(newquotes))+" documentos recuperados"
     return newquotes
 
   def findDoc(self,doc):
