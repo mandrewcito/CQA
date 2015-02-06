@@ -13,10 +13,15 @@ Python 2.7.3, CouchDB(and python-couchdb)
 * model Queries
 * config / automatizacion de consulta pagina en RAW(asistente)
 * hacer Doc resumen de cada compañia al dia (asi borramos las cotizaciones instantaneas para ahorrar espacio)
+
 ##Tiempos
 UTIL/medidas/medirTiempo.py PROGRAMA - mide tiempo ejecución de PROGRAMA
+
 ###insercion
 consulta a pagina + procesado + guardar en BD (otro pc) -> 14 sec(fuerza bruta descargando la pagina en RAW)
+
 ###recuperar documentos en un determinado intervalo de tiempo
+
 ###recuperar un documentos de una empresa dada en un intervalo de tiempo
+
 ###recuperar un documentos de todas las empresas en un intervalo de tiempo
