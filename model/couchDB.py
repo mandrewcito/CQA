@@ -65,8 +65,7 @@ class CouchDBDAO:
     rows=self._db.query(mf)
     newquotes=[]
     for row in rows:
-      newquotes.append(quotes.InstantQuote(row.key['company'],couchDBUtil.couchDBDateToDate(row.key['date']),row.key['value']))
-    print " -> "+str(len(newquotes))+" documentos recuperados"
+      newquotes.append(quotes.InstantQuote(couchDBUtil.couchDBDateToDate(row.key['date']),row.key['company'],row.key['value']))
     return newquotes
 
   def findInstantQuoteByCompany(self,company,startDate,endDate):
@@ -77,8 +76,7 @@ class CouchDBDAO:
     rows=self._db.query(mf)
     newquotes=[]
     for row in rows:
-      newquotes.append(quotes.InstantQuote(row.key['company'],couchDBUtil.couchDBDateToDate(row.key['date']),row.key['value']))
-    print " -> "+str(len(newquotes))+" documentos recuperados"
+      newquotes.append(quotes.InstantQuote(couchDBUtil.couchDBDateToDate(row.key['date']),row.key['company'],row.key['value']))
     return newquotes
 
   def findDoc(self,doc):

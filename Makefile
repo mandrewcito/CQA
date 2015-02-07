@@ -9,5 +9,9 @@ run:
 	@echo "be patient :)"
 
 clean:
-	rm -R *.pyc
-	rm -R *~
+	@find . -name "*.pyc" -exec rm -f '{}' +
+	@find . -name "*~" -exec rm -f '{}' +
+	@echo "Done!"
+
+logo:
+	@cat logo.txt

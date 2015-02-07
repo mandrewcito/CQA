@@ -20,6 +20,7 @@ Python 2.7.3, CouchDB(and python-couchdb)
 * model Queries
 * config / automatizacion de consulta pagina en RAW(asistente)
 * hacer Doc resumen de cada compañia al dia (asi borramos las cotizaciones instantaneas para ahorrar espacio)
+* acabar el config en getDao (hacerlo con el config.ini)
 
 ---
 ##Tiempos
@@ -36,10 +37,8 @@ consulta a pagina + procesado + guardar en BD (otro pc) -> 14 sec(fuerza bruta d
 With couchdb views
 [wiki](http://wiki.apache.org/couchdb/Introduction_to_CouchDB_views),[tutorial](http://guide.couchdb.org/draft/views.html)
 
-###recuperar documentos en un determinado intervalo de tiempo
+### Casos de uso :
 
-###recuperar un documentos de una empresa dada en un intervalo de tiempo
 
-###recuperar un documentos de todas las empresas en un intervalo de tiempo
 
 ---

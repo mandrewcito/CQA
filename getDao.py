@@ -22,10 +22,10 @@ class DaoUtil():
   def insert(self,date,company,value):
     #TODO validar date,company y value  y valor de retorno
     quote=InstantQuote(date,company,value)
-    self.dao.insert(quote.toDict())
+    return self.dao.insert(quote.toDict())
 
   def findInstantQuoteByCompany(self,company,startDate,endDate):
-    self.dao.findInstantQuoteByCompany(company,startDate,endDate)
+    return self.dao.findInstantQuoteByCompany(company,startDate,endDate)
 
   def findInstantQuoteByDate(self,date):
-    self.dao.findInstantQuoteByDate(date)
+    return self.dao.findInstantQuoteByDate(date)
