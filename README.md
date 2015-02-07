@@ -12,6 +12,11 @@ Python 2.7.3, CouchDB(and python-couchdb)
 * DB -> couchDB, getDao.DaoUtil() -> for DB operations
 
 ---
+## Dates
+
+Dates are in format dd/mm/yyyy-hh:mm
+
+---
 **TODO:**
 
 * API yahoo (or similar)
