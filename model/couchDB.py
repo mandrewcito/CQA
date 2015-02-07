@@ -79,6 +79,15 @@ class CouchDBDAO:
       newquotes.append(quotes.InstantQuote(couchDBUtil.couchDBDateToDate(row.key['date']),row.key['company'],row.key['value']))
     return newquotes
 
+  def findByCompany(self,type,company):
+    mf=mapFun.mfBycompany.format(type,company)
+    #hacemos la consulta
+    rows=self._db.query(mf)
+    newquotes=[]
+    for row in rows:
+      newquotes.append(quotes.InstantQuote(couchDBUtil.couchDBDateToDate(row.key['date']),row.key['company'],row.key['value']))
+    return newquotes
+
   def findDoc(self,doc):
     #devuelve ID doc dado un documento 
     pass
