@@ -21,11 +21,11 @@ Dates are in format dd/mm/yyyy-hh:mm
 
 * API yahoo (or similar)
 * Organize classes
-* graphics
+* graphics(matlib)
 * model Queries
 * config / automatizacion de consulta pagina en RAW(asistente)
 * hacer Doc resumen de cada compañia al dia (asi borramos las cotizaciones instantaneas para ahorrar espacio)
-* acabar el config en getDao (hacerlo con el config.ini)
+* insertar plot matlib en GTK
 
 ---
 ##Tiempos
