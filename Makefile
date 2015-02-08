@@ -1,12 +1,10 @@
 LANG = python
+APP = main.py
 
-all: compile run
-
-compile:
-	@echo "working on it "
+all: run
 
 run:
-	@echo "be patient :)"
+	@$(LANG) $(APP) 
 
 clean:
 	@find . -name "*.pyc" -exec rm -f '{}' +

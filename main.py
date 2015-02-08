@@ -3,6 +3,7 @@
 
 from gi.repository import Gtk
 from gi.repository import GdkPixbuf, GObject
+import config as c
 
 class App():
   def __init__(self):
@@ -12,13 +13,12 @@ class App():
     """ **********************  """
     builder.add_from_file("interfaz.glade")
     builder.connect_signals(self)
-    self.window = builder.get_object("principal")
+    self.window = builder.get_object("interfaz")
     self.listStoreCompany=builder.get_object("liststore_company")
+    self.listStoreCompany.clear()
+    for e in c.lista_company:
+      self.listStoreCompany.append([e])
     self.window.show_all()
-
-  def saludo(self,w):
-    #self.listStoreCompany.clear()
-    self.listStoreCompany.append(["pene"])
 
   def on_cerrar_ventana(self,w,e):
     # en cerrar abrir dialogo esta seguro
