@@ -13,10 +13,12 @@ class App():
     builder.add_from_file("interfaz.glade")
     builder.connect_signals(self)
     self.window = builder.get_object("principal")
+    self.listStoreCompany=builder.get_object("liststore_company")
     self.window.show_all()
 
   def saludo(self,w):
-    print "hola"
+    #self.listStoreCompany.clear()
+    self.listStoreCompany.append(["pene"])
 
   def on_cerrar_ventana(self,w,e):
     # en cerrar abrir dialogo esta seguro
