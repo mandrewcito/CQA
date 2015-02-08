@@ -2,12 +2,14 @@ import couchdb
 import model.couchDB
 import config as c
 from model.quotes import InstantQuote
+import UTIL.configUtil as cfg
 
 class GetDao():
 
   def __init__(self):
-    server = couchdb.Server(c.serverDir)
-    bd = server[c.dataBase]
+    
+    server = couchdb.Server(cfg.getTag("config.ini","dataBase","serverdir"))
+    bd = server[cfg.getTag("config.ini","dataBase","database")]
     self.dao=model.couchDB.CouchDBDAO(bd)
 
   def getDao(self):
