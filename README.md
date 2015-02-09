@@ -19,18 +19,6 @@ Python 2.7.3, CouchDB(and python-couchdb)
 Dates are in format dd/mm/yyyy-hh:mm
 
 
-**TODO:**
-
-* API yahoo (or similar)
-* Organize classes
-* graphics(matlib)
-* model Queries
-* config / automatizacion de consulta pagina en RAW(asistente)
-* hacer Doc resumen de cada compañia al dia (asi borramos las cotizaciones instantaneas para ahorrar espacio)
-* insertar plot matlib en GTK
-* analizar texto de noticias relacionadas con las empresas
-
-
 ##Tiempos
 
 UTIL/medidas/medirTiempo.py PROGRAMA - mide tiempo ejecución de PROGRAMA
@@ -49,3 +37,15 @@ With couchdb views
 
 
 ---
+
+**TODO:**
+
+* API yahoo (or similar)
+* Organize classes
+* graphics(matlib)
+* model Queries
+* config / automatizacion de consulta pagina en RAW(asistente)
+* hacer Doc resumen de cada compañia al dia (asi borramos las cotizaciones instantaneas para ahorrar espacio)
+* insertar plot matlib en GTK
+* analizar texto de noticias relacionadas con las empresas
+
