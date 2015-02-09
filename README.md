@@ -26,6 +26,7 @@ Dates are in format dd/mm/yyyy-hh:mm
 * config / automatizacion de consulta pagina en RAW(asistente)
 * hacer Doc resumen de cada compañia al dia (asi borramos las cotizaciones instantaneas para ahorrar espacio)
 * insertar plot matlib en GTK
+* analizar texto de noticias relacionadas con las empresas
 
 ---
 ##Tiempos
