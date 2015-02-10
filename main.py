@@ -28,15 +28,6 @@ class App():
     self.window = builder.get_object("inicial")
     self.combobox_principal=builder.get_object("combobox_principal")
     self.frameCentral=builder.get_object("frame_contenedor")
-    #grafica 
-    '''
-    self.figure = Figure(figsize=(5,5), dpi=100)
-    self.axis = self.figure.add_subplot(111, projection='polar')
-    self.canvas = FigureCanvas(self.figure) # a gtk.DrawingArea
-    self.canvas.show() 
-    self.graphview = builder.get_object("plot") 
-    self.graphview.pack_start(self.canvas, True, True, True)
-    '''
     self.window.show_all()
 
   def on_cerrar_ventana(self,w,e):
