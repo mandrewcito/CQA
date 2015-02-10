@@ -51,3 +51,4 @@ With couchdb views
 * modulo que dada una grafica le haga el canvas 
 * modulo pasado un objeto(canvas o otro) y un contenedor lo "pinte"(idle_add bla bla bla )
 * extender de thread una clase para que haga las consultas sin dejar colgada la interfaz.
+

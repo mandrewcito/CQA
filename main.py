@@ -38,9 +38,17 @@ class App():
     # escoge el modelo (filas), selcciona la activa, y elige la columna de la que queremos el texto
     opcion=self.combobox_principal.get_model()[self.combobox_principal.get_active()][0]
     if (opcion=="Compra"):
-      GObject.idle_add(self.cargarEnContenedor,self.window)
+      self.cargarEnContenedor(self.window)
 
   def cargarEnContenedor(self,w):
+    canvas=self.creaGrafico()
+    GObject.idle_add(self.cargaContenido,canvas,self.frameCentral,0)
+
+  def creaGrafico(self) : # llamara al controlador para pedir los datos, creara la figure y el grafico gtk 
+    fig=self.creaFigure()# despues se le pasaran unos datos este es el ejemplo 
+    return self.creaGraficoGtk(fig) #devuelve el elemento canvas creado
+  ######################################### crear figura y hacer elemento canvas para GtK
+  def creaFigure(self): 
     fig = Figure(figsize=(5,5), dpi=100)
     ax = fig.add_subplot(111, projection='polar')
     #grafico ejemplo
@@ -56,12 +64,18 @@ class App():
       bar.set_alpha(0.5)
 
     ax.plot()
-    #grafico ejemplo
-    canvas = FigureCanvas(fig)
+    return fig
+
+  def creaGraficoGtk(self,figure): #devuelve canvas obj poner TODO alto y ancho despues 
+    # a partir de fig, creamos un elem canvas con el tam espeficicado
+    canvas = FigureCanvas(figure)
     canvas.set_size_request(200,200)
-    self.frameCentral.pack_start(canvas, True, True, 0)
-    print "mostramos el grafico nuevo"
-    w.show_all()
+    return canvas 
+  #######################################################
+  def cargaContenido(self,contenido,contenedor,posicion):
+    contenedor.pack_start(contenido,True,True,posicion) 
+    contenedor.show_all()
+    
 
 GObject.threads_init()
 App()
