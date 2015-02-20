@@ -385,6 +385,11 @@
       <!-- column-name company -->
       <column type="gchararray"/>
     </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">Ninguna</col>
+      </row>
+    </data>
   </object>
   <object class="GtkWindow" id="principal">
     <property name="can_focus">False</property>
@@ -401,7 +406,7 @@
             <property name="can_focus">False</property>
             <property name="margin_right">1</property>
             <child>
-              <object class="GtkTreeView" id="treeview1">
+              <object class="GtkTreeView" id="treeview_company">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="vadjustment">adjustment1</property>
@@ -457,6 +462,29 @@
         </child>
       </object>
     </child>
+  </object>
+  <object class="GtkListStore" id="liststore_tiempo">
+    <columns>
+      <!-- column-name gchararray1 -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">Hoy</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Semana</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Mes </col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Medio año</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Un año</col>
+      </row>
+    </data>
   </object>
   <object class="GtkListStore" id="liststore_ver">
     <columns>
@@ -656,7 +684,7 @@
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>
-              <object class="GtkBox" id="box10">
+              <object class="GtkBox" id="box_lateral">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="orientation">vertical</property>
@@ -684,7 +712,34 @@
                   </packing>
                 </child>
                 <child>
-                  <placeholder/>
+                  <object class="GtkBox" id="box_lateral_superior">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="orientation">vertical</property>
+                    <child>
+                      <object class="GtkComboBox" id="combobox_companies">
+                        <property name="can_focus">False</property>
+                        <property name="model">liststore_company</property>
+                        <property name="active_id">0</property>
+                        <child>
+                          <object class="GtkCellRendererText" id="cellrenderertext3"/>
+                          <attributes>
+                            <attribute name="text">0</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">True</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
                 </child>
                 <child>
                   <object class="GtkSeparator" id="separator1">
@@ -698,7 +753,22 @@
                   </packing>
                 </child>
                 <child>
-                  <placeholder/>
+                  <object class="GtkComboBox" id="combobox_tiempo_mostrar">
+                    <property name="can_focus">False</property>
+                    <property name="model">liststore_tiempo</property>
+                    <property name="active_id">0</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellrenderertext4"/>
+                      <attributes>
+                        <attribute name="text">0</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">3</property>
+                  </packing>
                 </child>
               </object>
               <packing>
@@ -730,7 +800,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkBox" id="box11">
+          <object class="GtkBox" id="box_pie">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>

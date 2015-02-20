@@ -31,8 +31,9 @@ class App():
     self.listStore_companies=builder.get_object("liststore_company")
     self.treeView_companies=builder.get_object("treeview_company")
     self.comboBox_companies=builder.get_object("combobox_companies")
+    self.comboBox_tiempo_mostrar=builder.get_object("combobox_tiempo_mostrar")
     self.creaListStoreCompanies()
-    companies_menu=[self.comboBox_companies]
+    companies_menu=[self.comboBox_companies,self.comboBox_tiempo_mostrar]
     self.window.show()
     self.companies_menu=companies_menu
 
