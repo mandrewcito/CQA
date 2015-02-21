@@ -32,6 +32,7 @@ class App():
     self.treeView_companies=builder.get_object("treeview_company")
     self.comboBox_companies=builder.get_object("combobox_companies")
     self.comboBox_tiempo_mostrar=builder.get_object("combobox_tiempo_mostrar")
+    self.box_cartera=builder.get_object("grid_cartera")
     self.creaListStoreCompanies()
     companies_menu=[self.comboBox_companies,self.comboBox_tiempo_mostrar]
     self.window.show()
@@ -59,6 +60,10 @@ class App():
       self.cargarEnContenedor(self.window)
     else :
       self.ocultarMenuCompanies()
+    if (opcion=="Cartera"):
+      self.box_cartera.show()
+    else:
+      self.box_cartera.hide()
 
   def cargarEnContenedor(self,w):
     canvas=self.creaGrafico()
