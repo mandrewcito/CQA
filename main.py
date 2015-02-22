@@ -15,6 +15,7 @@ import matplotlib.cm as cm
 #from matplotlib.backends.backend_gtk3agg import FigureCanvasGTK3Agg as FigureCanvas
 from matplotlib.backends.backend_gtk3cairo import FigureCanvasGTK3Cairo as FigureCanvas
 import random as r
+import controlador as ctrl
 
 class App():
   def __init__(self):
@@ -47,6 +48,12 @@ class App():
   def ocultarMenuCompanies(self):
     for e in self.companies_menu:
       e.hide()
+  #al cambiar de compañia cambiamos sus datos con los nuevos
+  def on_combobox_companies_changed(self,w):
+    company=self.comboBox_companies.get_model()[self.comboBox_companies.get_active()][0]
+    tipo=self.combobox_principal.get_model()[self.combobox_principal.get_active()][0]
+    busq=ctrl.Busqueda(self)
+    busq.searchQuotes(company,tipo)
 
   def mostrarMenuCompanies(self):
     for e in self.companies_menu:
@@ -58,7 +65,8 @@ class App():
     opcion=self.combobox_principal.get_model()[self.combobox_principal.get_active()][0]
     if (opcion=="Compra"):
       self.mostrarMenuCompanies()
-      self.cargarEnContenedor(self.window)
+      valores = r.sample(range(50),  20)
+      self.cargarEnContenedor(self.window,valores)
     else :
       self.ocultarMenuCompanies()
     if (opcion=="Cartera"):
@@ -68,8 +76,8 @@ class App():
       self.box_cartera.hide()
       self.box_previsiones.hide()
 
-  def cargarEnContenedor(self,w):
-    canvas=self.creaGrafico()
+  def cargarEnContenedor(self,w,valores):
+    canvas=self.creaGrafico(valores)
     GObject.idle_add(self.cargaContenido,canvas,self.frameCentral,0)
     
   #init store companies
@@ -80,9 +88,8 @@ class App():
       self.listStore_companies.append([valor])
 
   ######################################### crear figura y hacer elemento canvas para GtK
-  def creaGrafico(self) : # llamara al controlador para pedir los datos, creara la figure y el grafico gtk
+  def creaGrafico(self,valores) : # llamara al controlador para pedir los datos, creara la figure y el grafico gtk
     #llamada al controlador para pedir los datos, parsear los que se obtienen de la interfaz etc
-    valores = r.sample(range(50),  20)
     fig=self.creaFigure('rectilinear',valores)# despues se le pasaran unos datos este es el ejemplo 
     return self.creaGraficoGtk(fig) #devuelve el elemento canvas creado
   
