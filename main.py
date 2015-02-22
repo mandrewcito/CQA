@@ -28,7 +28,11 @@ class App():
     builder.connect_signals(self)
     self.window = builder.get_object("inicial")
     self.combobox_principal=builder.get_object("combobox_principal")
+    #frame grafica
     self.frameCentral=builder.get_object("frame_contenedor")
+    self.frameCentralTodo=builder.get_object("frame_contenedor_grande")
+    self.frameCentralLabel=builder.get_object("label_contenedor_grafica")
+    ##############
     self.box_lateral=builder.get_object("box_lateral_superior")
     self.listStore_companies=builder.get_object("liststore_company")
     self.treeView_companies=builder.get_object("treeview_company")
@@ -37,8 +41,8 @@ class App():
     self.box_cartera=builder.get_object("grid_cartera")
     self.box_previsiones=builder.get_object("box_previsiones")
     self.creaListStoreCompanies()
-    self.companies_menu=[self.comboBox_companies,self.comboBox_tiempo_mostrar]
-    self.cartera_menu=[self.box_previsiones,self.box_cartera]
+    self.companies_menu=[self.box_previsiones,self.comboBox_companies,self.comboBox_tiempo_mostrar,self.frameCentral,self.frameCentralLabel]
+    self.cartera_menu=[self.box_cartera]
     self.window.show()
 
   def on_cerrar_ventana(self,w,e):
@@ -61,6 +65,7 @@ class App():
       tiempo=time.strftime("%d/%m/%Y-", time.gmtime(time.time()))
       fInicio=tiempo+horaI
       fFin=tiempo+horaF
+    GObject.idle_add(self.actualizaLabel,self.frameCentralLabel,"viendo cotizaciones de "+company+"  "+tipo)
     busq=ctrl.Busqueda(self)
     busq.searchQuotes(company,tipo,fInicio,fFin)
 
@@ -78,12 +83,11 @@ class App():
       self.cargarEnContenedor(self.window,valores)
     else :
       self.ocultarMenuCompanies()
+
     if (opcion=="Cartera"):
       self.box_cartera.show()
-      self.box_previsiones.show()
     else:
       self.box_cartera.hide()
-      self.box_previsiones.hide()
 
   def cargarEnContenedor(self,w,valores):
     canvas=self.creaGrafico(valores)
@@ -109,12 +113,16 @@ class App():
     plt.plot(valores)
     return fig
 
-  def creaGraficoGtk(self,figure): #devuelve canvas obj poner TODO alto y ancho despues 
+  def creaGraficoGtk(self,figure):
     # a partir de fig, creamos un elem canvas con el tam espeficicado
+    x,y=self.window.get_size()
     canvas = FigureCanvas(figure)
-    canvas.set_size_request(500,300)
+    canvas.set_size_request(450,300)
     return canvas 
   #######################################################
+  def actualizaLabel(self,label,contenido):
+    label.set_text(contenido)
+    label.show()
 
   def cargaContenido(self,contenido,contenedor,posicion):
     box1 = Gtk.HBox()
