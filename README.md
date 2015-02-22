@@ -48,3 +48,4 @@ With couchdb views
 * analizar texto de noticias relacionadas con las empresas
 * hacer caso de uso para buscar por tipo de doc, compañia y dos fechas determinadas
 * añadir en la interfaz si lo que quiere buscar son instantquote, quote resumen de dia o de mes 
+* test modelo 

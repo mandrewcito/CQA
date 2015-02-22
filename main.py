@@ -17,6 +17,7 @@ from matplotlib.backends.backend_gtk3cairo import FigureCanvasGTK3Cairo as Figur
 import random as r
 import controlador as ctrl
 import time
+import UTIL.configUtil as cfg
 
 class App():
   def __init__(self):
@@ -40,6 +41,11 @@ class App():
     self.comboBox_tiempo_mostrar=builder.get_object("combobox_tiempo_mostrar")
     self.box_cartera=builder.get_object("grid_cartera")
     self.box_previsiones=builder.get_object("box_previsiones")
+    builder.get_object("linkbuttonGit").set_label("mandrewcito")
+    self.label_ultima_actualizacion=builder.get_object("label_ultima_actualizacion")
+    self.label_ultima_actualizacion.set_text("Ultima actualización "+cfg.getTag("config.ini","actualizacion","lastupdate"))
+    self.label_version=builder.get_object("label_version")
+    self.label_version.set_text(" v "+cfg.getTag("config.ini","app","version"))
     self.creaListStoreCompanies()
     self.companies_menu=[self.box_previsiones,self.comboBox_companies,self.comboBox_tiempo_mostrar,self.frameCentral,self.frameCentralLabel]
     self.cartera_menu=[self.box_cartera]
