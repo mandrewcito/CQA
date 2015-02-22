@@ -4,7 +4,7 @@
 
 ##Requirements
 
-Python 2.7.3, CouchDB(and python-couchdb)
+Python 2.7.3, CouchDB(and python-couchdb),python-matplotlib
 
 
 ## init
@@ -42,13 +42,9 @@ With couchdb views
 
 * API yahoo (or similar)
 * Organize classes
-* graphics(matlib)
 * model Queries
 * config / automatizacion de consulta pagina en RAW(asistente)
-* hacer Doc resumen de cada compañia al dia (asi borramos las cotizaciones instantaneas para ahorrar espacio)
+* hacer Doc resumen de cada compañia al dia y mes (ahorramos consultas para hacer los resumenes )
 * analizar texto de noticias relacionadas con las empresas
-* modulo que haga graficas de matlib pasados unos datos(compañia, valores e intervalos de tiempo)
-* modulo que dada una grafica le haga el canvas 
-* modulo pasado un objeto(canvas o otro) y un contenedor lo "pinte"(idle_add bla bla bla )
 * extender de thread una clase para que haga las consultas sin dejar colgada la interfaz.
 
