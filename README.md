@@ -46,5 +46,5 @@ With couchdb views
 * config / automatizacion de consulta pagina en RAW(asistente)
 * hacer Doc resumen de cada compañia al dia y mes (ahorramos consultas para hacer los resumenes )
 * analizar texto de noticias relacionadas con las empresas
-* extender de thread una clase para que haga las consultas sin dejar colgada la interfaz.
-
+* hacer caso de uso para buscar por tipo de doc, compañia y dos fechas determinadas
+* añadir en la interfaz si lo que quiere buscar son instantquote, quote resumen de dia o de mes 
