@@ -16,6 +16,7 @@ import matplotlib.cm as cm
 from matplotlib.backends.backend_gtk3cairo import FigureCanvasGTK3Cairo as FigureCanvas
 import random as r
 import controlador as ctrl
+import time
 
 class App():
   def __init__(self):
@@ -51,9 +52,17 @@ class App():
   #al cambiar de compañia cambiamos sus datos con los nuevos
   def on_combobox_companies_changed(self,w):
     company=self.comboBox_companies.get_model()[self.comboBox_companies.get_active()][0]
-    tipo=self.combobox_principal.get_model()[self.combobox_principal.get_active()][0]
+    tipo=self.comboBox_tiempo_mostrar.get_model()[self.comboBox_tiempo_mostrar.get_active()][0]
+    horaI="08:00"
+    horaF="18:00"
+    fInicio=""
+    fFin=""
+    if tipo=="Hoy":
+      tiempo=time.strftime("%d/%m/%Y-", time.gmtime(time.time()))
+      fInicio=tiempo+horaI
+      fFin=tiempo+horaF
     busq=ctrl.Busqueda(self)
-    busq.searchQuotes(company,tipo)
+    busq.searchQuotes(company,tipo,fInicio,fFin)
 
   def mostrarMenuCompanies(self):
     for e in self.companies_menu:

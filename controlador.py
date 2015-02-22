@@ -7,8 +7,9 @@ class Busqueda(threading.Thread):
   def __init__(self,ventana):
     self.ventana=ventana
 
-  def searchQuotes(self,company,tipo):
-    quotes=g.DaoUtil().findByCompany("InstantQuote",company)
+  def searchQuotes(self,company,tipo,startDate,endDate):
+    #findInstantQuoteByCompany(self,company,startDate,endDate)
+    quotes=g.DaoUtil().findInstantQuoteByCompany(company,startDate,endDate)
     lista = []
     for e in quotes:
       lista.append([e.getValue()])

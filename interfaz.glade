@@ -105,6 +105,9 @@
       <row>
         <col id="0" translatable="yes">Un año</col>
       </row>
+      <row>
+        <col id="0" translatable="yes">Fecha Personalizada</col>
+      </row>
     </data>
   </object>
   <object class="GtkListStore" id="liststore_ver">
@@ -341,6 +344,7 @@
                       <object class="GtkComboBox" id="combobox_companies">
                         <property name="can_focus">False</property>
                         <property name="model">liststore_company</property>
+                        <property name="active">0</property>
                         <property name="active_id">0</property>
                         <signal name="changed" handler="on_combobox_companies_changed" swapped="no"/>
                         <child>
@@ -447,6 +451,7 @@
                   <object class="GtkComboBox" id="combobox_tiempo_mostrar">
                     <property name="can_focus">False</property>
                     <property name="model">liststore_tiempo</property>
+                    <property name="active">0</property>
                     <property name="active_id">0</property>
                     <child>
                       <object class="GtkCellRendererText" id="cellrenderertext4"/>
