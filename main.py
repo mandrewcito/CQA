@@ -33,10 +33,11 @@ class App():
     self.comboBox_companies=builder.get_object("combobox_companies")
     self.comboBox_tiempo_mostrar=builder.get_object("combobox_tiempo_mostrar")
     self.box_cartera=builder.get_object("grid_cartera")
+    self.box_previsiones=builder.get_object("box_previsiones")
     self.creaListStoreCompanies()
-    companies_menu=[self.comboBox_companies,self.comboBox_tiempo_mostrar]
+    self.companies_menu=[self.comboBox_companies,self.comboBox_tiempo_mostrar]
+    self.cartera_menu=[self.box_previsiones,self.box_cartera]
     self.window.show()
-    self.companies_menu=companies_menu
 
   def on_cerrar_ventana(self,w,e):
     # en cerrar abrir dialogo esta seguro
@@ -62,8 +63,10 @@ class App():
       self.ocultarMenuCompanies()
     if (opcion=="Cartera"):
       self.box_cartera.show()
+      self.box_previsiones.show()
     else:
       self.box_cartera.hide()
+      self.box_previsiones.hide()
 
   def cargarEnContenedor(self,w):
     canvas=self.creaGrafico()
