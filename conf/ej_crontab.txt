@@ -1,4 +1,7 @@
-15/10 8-18 * * 1-5 “usuario X” “ruta al script”
+*/2 8-18 * * 1-5 " ruta al script"
 
+con crontab -e 
+
+para ver si está bien crontab -l
 Esto se ejecutaría empezando en el minuto 15 cada 10 minutos , de 8 a 18 de la mañana todos los dias de cada mes , los dias que sean lunes a viernes.
 add a crontab la linea anterior con el usuario y la ruta deseada 
