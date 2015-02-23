@@ -36,6 +36,11 @@ With couchdb views
 ### Casos de uso :
 
 
+## Interfaz :
+### Pestaña compra
+Recuperar y mostrar valores de una compañia en un intervalo de tiempo :
+[v0.1.png](doc/img/v0.1.png)
+
 ---
 
 **TODO:**
@@ -43,7 +48,7 @@ With couchdb views
 * API yahoo (or similar)
 * Organize classes
 * model Queries
-* config / automatizacion de consulta pagina en RAW(asistente)
+* automatizacion de consulta pagina en RAW(asistente)
 * hacer Doc resumen de cada compañia al dia y mes (ahorramos consultas para hacer los resumenes )
 * analizar texto de noticias relacionadas con las empresas
 * hacer caso de uso para buscar por tipo de doc, compañia y dos fechas determinadas

@@ -26,4 +26,3 @@ class Busqueda(threading.Thread):
     for e in quotes:
       lista.append([e.getValue()])
     GObject.idle_add(self.ventana.cargarEnContenedor,self.ventana.window,lista)
-
