@@ -1,7 +1,7 @@
 LANG = python
 APP = main.py
 
-all: run
+all: run logo
 
 run:
 	@$(LANG) $(APP) 
