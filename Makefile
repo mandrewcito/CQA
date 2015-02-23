@@ -3,6 +3,11 @@ APP = main.py
 
 all: run logo
 
+install:
+	@echo "instalar/configurar couchDB"
+	@echo "cofigurar crontab"
+	@echo "instalar dependencias librerias graficas"
+
 run:
 	@$(LANG) $(APP) 
 
