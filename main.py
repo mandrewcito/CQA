@@ -16,7 +16,7 @@ import matplotlib.cm as cm
 from matplotlib.backends.backend_gtk3cairo import FigureCanvasGTK3Cairo as FigureCanvas
 import random as r
 import controlador as ctrl
-import time
+import time,threading
 import UTIL.configUtil as cfg
 
 class App():
@@ -63,17 +63,11 @@ class App():
   def on_combobox_companies_changed(self,w):
     company=self.comboBox_companies.get_model()[self.comboBox_companies.get_active()][0]
     tipo=self.comboBox_tiempo_mostrar.get_model()[self.comboBox_tiempo_mostrar.get_active()][0]
-    horaI="08:00"
-    horaF="18:00"
     fInicio=""
     fFin=""
-    if tipo=="Hoy":
-      tiempo=time.strftime("%d/%m/%Y-", time.gmtime(time.time()))
-      fInicio=tiempo+horaI
-      fFin=tiempo+horaF
-    GObject.idle_add(self.actualizaLabel,self.frameCentralLabel,"viendo cotizaciones de "+company+"  "+tipo)
     busq=ctrl.Busqueda(self)
-    busq.searchQuotes(company,tipo,fInicio,fFin)
+    b0 = threading.Thread(target=busq.searchQuotes,args=(company,tipo,fInicio,fFin))
+    b0.start()
 
   def mostrarMenuCompanies(self):
     for e in self.companies_menu:
