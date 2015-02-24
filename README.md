@@ -12,6 +12,7 @@ Python 2.7.3, CouchDB(and python-couchdb),python-matplotlib
 * fill database -> Execute ibexQuery.py with cron
 ([how to configure cron](http://www.codigonomada.com/como-anadir-tareas-programadas-con-cron-linux/))
 * DB -> couchDB, getDao.DaoUtil() -> for DB operations
+* DAO calls must be done from controlador.py->Busqueda(extends thread)
 
 
 ## Dates
