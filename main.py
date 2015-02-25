@@ -49,7 +49,15 @@ class App():
     self.creaListStoreCompanies()
     self.companies_menu=[self.box_previsiones,self.comboBox_companies,self.comboBox_tiempo_mostrar,self.frameCentral,self.frameCentralLabel]
     self.cartera_menu=[self.box_cartera]
+    self.progressBar=builder.get_object("barra_carga")
+    self.cargado=False
     self.window.show()
+
+  def on_cargaFinalizada(self,w):
+    help(self.progressBar)
+
+  def on_cargando(self,w):
+      self.progressBar.pulse()
 
   def on_cerrar_ventana(self,w,e):
     # en cerrar abrir dialogo esta seguro
@@ -59,6 +67,7 @@ class App():
   def ocultarMenuCompanies(self):
     for e in self.companies_menu:
       e.hide()
+
   #al cambiar de compañia cambiamos sus datos con los nuevos
   def on_combobox_companies_changed(self,w):
     company=self.comboBox_companies.get_model()[self.comboBox_companies.get_active()][0]
@@ -68,6 +77,9 @@ class App():
     busq=ctrl.Busqueda(self)
     b0 = threading.Thread(target=busq.searchQuotes,args=(company,tipo,fInicio,fFin))
     b0.start()
+    busq=ctrl.Busqueda(self)
+    b1 = threading.Thread(target=busq.progressBar)
+    b1.start()
 
   def mostrarMenuCompanies(self):
     for e in self.companies_menu:
