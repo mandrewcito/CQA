@@ -12,6 +12,7 @@ Python 2.7.3, CouchDB(and python-couchdb),python-matplotlib
 * fill database -> Execute ibexQuery.py with cron
 ([how to configure cron](http://www.codigonomada.com/como-anadir-tareas-programadas-con-cron-linux/))
 * DB -> couchDB, getDao.DaoUtil() -> for DB operations
+* DAO calls must be done from controlador.py->Busqueda(extends thread)
 
 
 ## Dates
@@ -47,10 +48,9 @@ Recuperar y mostrar valores de una compañia en un intervalo de tiempo :
 
 * API yahoo (or similar)
 * Organize classes
-* model Queries
+* model Queries (hacer caso de uso para buscar por tipo de doc, compañia y dos fechas determinadas)
 * automatizacion de consulta pagina en RAW(asistente)
-* hacer Doc resumen de cada compañia al dia y mes (ahorramos consultas para hacer los resumenes )
+* hacer Doc resumen de cada compañia al dia y mes (ahorramos consultas para hacer los resumenes)(consulta de recuperar instantQuote de un dia en concreto)
 * analizar texto de noticias relacionadas con las empresas
-* hacer caso de uso para buscar por tipo de doc, compañia y dos fechas determinadas
-* añadir en la interfaz si lo que quiere buscar son instantquote, quote resumen de dia o de mes 
+* añadir en la interfaz si lo que quiere buscar son instantquote, quote resumen de dia o de mes (checkbox)
 * test modelo 
