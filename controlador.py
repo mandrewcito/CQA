@@ -34,7 +34,8 @@ class Busqueda(threading.Thread):
   def progressBar(self):
     global cargado
     while not cargado:
-      GObject.idle_add(self.ventana.on_cargaFinalizada,self.ventana.window)
+      GObject.idle_add(self.ventana.on_cargando,self.ventana.window)
       time.sleep(0.125)
+    GObject.idle_add(self.ventana.on_cargaFinalizada,self.ventana.window)
     cargado=False
 

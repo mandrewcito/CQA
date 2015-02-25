@@ -54,7 +54,7 @@ class App():
     self.window.show()
 
   def on_cargaFinalizada(self,w):
-    help(self.progressBar)
+    pass
 
   def on_cargando(self,w):
       self.progressBar.pulse()
