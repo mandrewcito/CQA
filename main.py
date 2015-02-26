@@ -50,14 +50,19 @@ class App():
     self.companies_menu=[self.box_previsiones,self.comboBox_companies,self.comboBox_tiempo_mostrar,self.frameCentral,self.frameCentralLabel]
     self.cartera_menu=[self.box_cartera]
     self.progressBar=builder.get_object("barra_carga")
+    self.progressBar.set_show_text(True)
     self.cargado=False
     self.window.show()
 
+  def setTextProgressBar(self,w,texto):
+    self.progressBar.set_text(texto)
+
   def on_cargaFinalizada(self,w):
-    pass
+    self.progressBar.set_fraction(0.0)
+    self.setTextProgressBar(w,"actualizado")
 
   def on_cargando(self,w):
-      self.progressBar.pulse()
+    self.progressBar.pulse()
 
   def on_cerrar_ventana(self,w,e):
     # en cerrar abrir dialogo esta seguro

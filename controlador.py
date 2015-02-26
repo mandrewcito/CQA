@@ -10,6 +10,7 @@ class Busqueda(threading.Thread):
   def searchQuotes(self,company,tipo,startDate,endDate):
     #findInstantQuoteByCompany(self,company,startDate,endDate)
     GObject.idle_add(self.ventana.on_cargando,self.ventana.window)
+    GObject.idle_add(self.ventana.setTextProgressBar,self.ventana.window,"Cargando "+company)
     horaI="08:00"
     horaF="18:00"
     fInicio=""
